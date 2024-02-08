@@ -60,6 +60,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
    * Con Next siempre hay que crear una carpeta para cda componente, y llamar a ese componente por el nombre de la carpeta. Y TODOS los comopenetes se deben llamar "page"
    * En el caso de las rutas, es el mismo procedimiento, crear carpetas para cada ruta y que los archivos que son rutas, sean llamados como "route"
    * En base de datso no hace falta seguir esta regla como las "page" y "route".
-   * 
+   * Para poder utilizar "params" como en express.js , y poder aceder a estos datos, crear carpeta dentro de la carpeta del componente con el nombre de "[]"
+   * y dentro de esta colocar el nombre del parametro : EJ . [id] - luego acceder a este parametro atraves de "params" dentro de "page.js" o "page.jsx"
 
   
