@@ -58,6 +58,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
    * EJ: app/login/page.tsx   -   para que la URL de con este compnente seria -> localhost/3000/login    [nombre de la carpeta]   
    * Hay un archivo por defecto 404 - el cual se puede editar 
    * Con Next siempre hay que crear una carpeta para cda componente, y llamar a ese componente por el nombre de la carpeta. Y TODOS los comopenetes se deben llamar "page"
-   * 
+   * En el caso de las rutas, es el mismo procedimiento, crear carpetas para cada ruta y que los archivos que son rutas, se llamados coo "RUTA
+   * En base de datso no hace falta seguir estaregla
 
   
