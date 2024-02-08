@@ -56,5 +56,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 1. * Respetar los nombres que pone la convencion, para acceder  alos componentes desde las ruta, se accede an raves de l nombre de las rutas
    * EJ: app/login/page.tsx   -   para que la URL de con este compnente seria -> localhost/3000/login    [nombre de la carpeta]   
+   * Hay un archivo por defecto 404 - el cual se puede editar 
+   * Con Next siempre hay que crear una carpeta para cda componente, y llamar a ese componente por el nombre de la carpeta.
+   * 
 
   
