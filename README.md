@@ -54,7 +54,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## NOTAS - REPASOS - TIPS
 
-1. * Respetar los nombres que pone la convencion, para acceder  alos componentes desde las ruta, se accede an raves de l nombre de las rutas
+1. * BASICO
+   * Respetar los nombres que pone la convencion, para acceder  alos componentes desde las ruta, se accede an raves de l nombre de las rutas
    * EJ: app/login/page.tsx   -   para que la URL de con este compnente seria -> localhost/3000/login    [nombre de la carpeta]   
    * Hay un archivo por defecto 404 - el cual se puede editar 
    * Con Next siempre hay que crear una carpeta para cda componente, y llamar a ese componente por el nombre de la carpeta. Y TODOS los comopenetes se deben llamar "page"
@@ -62,5 +63,9 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
    * En base de datso no hace falta seguir esta regla como las "page" y "route".
    * Para poder utilizar "params" como en express.js , y poder aceder a estos datos, crear carpeta dentro de la carpeta del componente con el nombre de "[]"
    * y dentro de esta colocar el nombre del parametro : EJ . [id] - luego acceder a este parametro atraves de "params" dentro de "page.js" o "page.jsx"
+   * EJ: con el params podemos permitir que distintos usuarios puedan ingresar, a sus respectivas paginas.
+
+2. * INTERMEDIO
+   * API - 
 
   
