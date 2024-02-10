@@ -13,15 +13,28 @@ import { axios } from "axios";
 
 export default function SignupPage(){
 
+    const router = useRouter() // Next method
+
+
     const [user, setUser] = React.useState({
         email: "",
         password: "",
         username: ""
     })
 
+    const [ buttonDisabled, setButtonDisabled] = React.useState(false)
+
     // Casi siempre cuando se consulta una base de datos , se usa la asyncronia
     const onSignup = async () => {
     }
+
+    React.useEffect(() => {
+        if(user.email.length > 0 && user.password.length > 0 && user.username.length > 0){
+            setButtonDisabled(false)
+        } else {
+            setButtonDisabled(true);
+        }
+    }, [user])
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen py-2">
@@ -31,7 +44,7 @@ export default function SignupPage(){
             {/* Username - Input */}
             <label htmlFor="username">username</label>
             <input 
-                className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600"
+                className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 text-black"
                 type="text"
                 id="username"
                 value={user.username}
@@ -43,7 +56,7 @@ export default function SignupPage(){
             {/* Email - Input */}
             <label htmlFor="email">email</label>
             <input 
-                className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600"
+                className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 text-black"
                 type="text"
                 id="email"
                 value={user.email}
@@ -55,7 +68,7 @@ export default function SignupPage(){
             {/* Password - Input */}
             <label htmlFor="password">password</label>
             <input 
-                className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600"
+                className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 text-black"
                 type="password"
                 id="password"
                 value={user.password}
@@ -67,7 +80,7 @@ export default function SignupPage(){
             <button 
             onClick={onSignup}
             className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600">
-                Signup here
+                { buttonDisabled ? "No signup" : "Signup" }
             </button>
 
             <Link href={"/login"}>Visit Login Page</Link>

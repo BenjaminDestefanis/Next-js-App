@@ -3,9 +3,17 @@ import User from '@/models/userModel'
 import { NextRequest, NextResponse } from 'next/server'
 import bcryptjs from 'bcryptjs'
 
+
+/* 
+    mongoose methods
+    findOne()
+    save()
+*/
+
 connect()
 
     // This a POST handler example
+    // This is to create a User
 export async function POST(request: NextRequest){
     try {
         const reqBody = await request.json()    //
