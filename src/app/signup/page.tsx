@@ -6,7 +6,8 @@
 import Link from "next/link";
 import React from "react";
 import { useRouter } from "next/navigation";
-import { axios } from "axios";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 // axios tira una falla po que se pisa on al de typescritpt
 
@@ -23,9 +24,22 @@ export default function SignupPage(){
     })
 
     const [ buttonDisabled, setButtonDisabled] = React.useState(false)
+    const [ loading, setLoading] = React.useState(false)
 
-    // Casi siempre cuando se consulta una base de datos , se usa la asyncronia
+    // When ewe work whidt databases , use async 
     const onSignup = async () => {
+        try {
+            setLoading(true)
+
+            const response = await axios.post("api/users/signup", user)
+            console.log("Signup Succes", response.data)
+            router.push("/login") // method for charge a new Route
+        } catch (error : any) {
+            console.log("Signup Failed", error.message)
+            toast.error(error.message)
+        } finally {
+            setLoading(false)
+        }
     }
 
     React.useEffect(() => {
@@ -38,7 +52,7 @@ export default function SignupPage(){
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen py-2">
-            <h1>Signup</h1>
+            <h1>{loading ? "Proccessing" : "Signup" }</h1>
             <hr />
 
             {/* Username - Input */}
