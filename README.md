@@ -70,5 +70,12 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
    * Los console.log() se imprimen de acuerdo se el el documento tiene o no "use client"
    * Usuario crear usuario en base
    * Usuario se logea
+   * Hasta aqui SignUp y Login (Front and Back)
+   * Logout button
+
+3. * MIDDELWERES - En NEXT.js funcionan diferente
+   * Protecciones 
+   * Configuracion de Rutas 
+   * 
 
   
