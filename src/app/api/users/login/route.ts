@@ -20,6 +20,14 @@ export async function GET( request : NextRequest){
             return NextResponse.json({error: "User dos not exist"}, {status: 400})
         }
 
+        // check if password is correct
+
+        const validPassword = await bcryptjs.compare(password, user.password)
+
+        if(!validPassword){
+            return NextResponse.json({ error: "Invalid password" }, { status: 400 })
+        }
+
 
         
     } catch (error : any) {

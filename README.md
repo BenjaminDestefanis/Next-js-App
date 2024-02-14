@@ -67,5 +67,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 2. * INTERMEDIO
    * API - 
+   * Los console.log() se imprimen de acuerdo se el el documento tiene o no "use client"
+   * Usuario crear usuario en base
+   * Usuario se logea
 
   
