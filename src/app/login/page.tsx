@@ -4,27 +4,59 @@ import Link from "next/link";
 import React from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 
 export default function SignupPage(){
-
+    
+    const router = useRouter()
     const [user, setUser] = React.useState({
         email: "",
         password: "",
     })
 
-    const onSignup = async () => {
+    const [buttonDisabled, setButtonDisabled]  = React.useState(false)
+    const [loading, setLoading] = React.useState(false)
+
+    const onLogin = async () => {
+        try{
+            setLoading(true)
+            
+            const response = await axios.post("api/users/login", user)
+            console.log("Login success", response.data)
+            toast.success("Login success")
+            router.push("/profile")
+
+        } catch (error : any){
+            console.log("Login failed", error.message)
+            toast.error(error.message)
+
+        } finally {
+            setLoading(true)
+        }
     }
+
+    React.useEffect(() => {
+        if(user.email.length > 0 && user.password.length > 0 ){
+            setButtonDisabled(false)
+        } else {
+            setButtonDisabled(true)
+        }
+    }, [user])
+
+    /* const onSignup = async () => {
+        console.log("ASD")
+    } */
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen py-2">
-            <h1>Login</h1>
+            <h1>{loading ? "Processing " : "Process"}</h1>
             <hr />
 
             {/* Email - Input */}
             <label htmlFor="email">email</label>
             <input 
-                className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600"
+                className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 text-black"
                 type="text"
                 id="email"
                 value={user.email}
@@ -36,7 +68,7 @@ export default function SignupPage(){
             {/* Password - Input */}
             <label htmlFor="password">password</label>
             <input 
-                className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600"
+                className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 text-black"
                 type="password"
                 id="password"
                 value={user.password}
@@ -46,7 +78,7 @@ export default function SignupPage(){
 
 
             <button 
-            onClick={onSignup}
+            onClick={onLogin}
             className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600">
                 Login here
             </button>
