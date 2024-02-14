@@ -73,9 +73,10 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
    * Hasta aqui SignUp y Login (Front and Back)
    * Logout button
 
-3. * MIDDELWERES - En NEXT.js funcionan diferente
+3. * MIDDLEWARE - En NEXT.js funcionan diferente
    * Protecciones 
    * Configuracion de Rutas 
-   * 
+   * Los Middleware corren antes de que se complete la request. Dependiendo de la request , pueden modificar la response :
+   * (rewriting, redrecting, modifying los headers o responding directly)
 
   
