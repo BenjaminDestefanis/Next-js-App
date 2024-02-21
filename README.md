@@ -79,4 +79,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
    * Los Middleware corren antes de que se complete la request. Dependiendo de la request , pueden modificar la response :
    * (rewriting, redrecting, modifying los headers o responding directly)
 
-  
+4. * VERIFICACION CON EMAIL
+   * mailtrap.io
+   * windows.location.search . en consola de navegador
