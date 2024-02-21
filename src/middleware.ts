@@ -8,7 +8,7 @@ export function middleware( request: NextRequest){
 
     const isPublicPath = path === '/login' || path === '/signup' // this two path , public , in this path i can't see the token
 
-    const token = request.cookies.get('token')?.value || '' // Si esta el token - lo elimina
+    const token = request.cookies.get('token')?.value || '' // Obtiene el TOKEN
 
     if(isPublicPath && token) {
         return NextResponse.redirect(new URL("/", request.nextUrl)) // redirecciona
