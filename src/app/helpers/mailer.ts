@@ -8,14 +8,21 @@ export const sendEmail = async({email, emailType, userId} : any) => {
         // create hashToken
         const hashToken = bcryptjs.hash(userId.toString(), 10)
 
-        await User.findByIdAndUpdate(userId,
-             {
-            verifyToken: hashToken,
-            verifyTokenExpiry: Date.now() + 3600000
-             }/* ,
-             {
-            new: true,  runValidators: true
-             } */)
+        if(emailType === "VERIFY"){
+            await await User.findByIdAndUpdate(userId,
+                {
+               verifyToken: hashToken,
+               verifyTokenExpiry: Date.now() + 3600000
+                })
+        } else if (emailType === "RESET"){
+            await User.findByIdAndUpdate(userId,{
+                forgotPasswordToken: hashToken,
+                forgotPasswordTokenExpiry: Date.now() + 3600000
+            })
+        }
+
+        nodemailer.createTrans
+       
     } catch (error : any){
         throw new Error(error.message)
     }
